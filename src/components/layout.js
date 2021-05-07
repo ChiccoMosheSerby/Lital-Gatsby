@@ -1,25 +1,16 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import '../styles/global.css'
-import Header from "./header";
+import "../styles/global.css";
+import Header from "./Header.js";
 import Menu from "./Menu/Menu";
 import { theme } from "../styles/theme";
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header />
       <Menu />
       <div
         style={{
@@ -37,7 +28,7 @@ const Layout = ({ children }) => {
         >
           Copyright 2021 Chicco
         </footer> */}
-      </div> 
+      </div>
     </>
   );
 };
