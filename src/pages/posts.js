@@ -5,7 +5,7 @@ import Seo from "../components/seo";
 
 export const postsQuery = graphql`
   query AllPostsQuary {
-    allMarkdownRemark(sort: {fields: frontmatter___date, order: ASC}) {
+    posts: allMarkdownRemark(sort: { fields: frontmatter___date, order: ASC }) {
       nodes {
         frontmatter {
           title
@@ -17,11 +17,17 @@ export const postsQuery = graphql`
         id
       }
     }
+    contact: site {
+      siteMetadata {
+        contact
+      }
+    }
   }
 `;
 
 const Posts = ({ data }) => {
-  const posts = data?.allMarkdownRemark?.nodes;
+  const posts = data?.posts?.nodes;
+  const email = data?.contact?.siteMetadata?.contact;
   // const postsQuery = useStaticQuery(graphql`
   //   query AllPostsQuary {
   //     allMarkdownRemark {
@@ -60,6 +66,7 @@ const Posts = ({ data }) => {
           </div>
         );
       })}
+      Contact Us : {email}
     </Layout>
   );
 };

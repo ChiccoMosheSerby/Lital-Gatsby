@@ -4,7 +4,8 @@ module.exports = {
     description: `this is my first gatsby site.`,
     author: `Chicco`,
     keywords:'therapy',
-    copyright:'this site made by C.M.S Chicco Moshe Serby'
+    copyright:'this site made by C.M.S Chicco Moshe Serby',
+    contact:"chiccoMoshe@gmail.com"
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
