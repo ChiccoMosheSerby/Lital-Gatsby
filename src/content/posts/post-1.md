@@ -1,6 +1,6 @@
 ---
-path: "/first-post"
-date: "05-05-2021"
+path: "/posts/first-post"
+date: "04-05-2021"
 title: "my first post"
 author: "Chicco"
 category: 'test'

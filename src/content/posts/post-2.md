@@ -1,5 +1,5 @@
 ---
-path: "/second-post"
+path: "/posts/second-post"
 date: "05-05-2021"
 title: "my second  post"
 author: "Jhon"
