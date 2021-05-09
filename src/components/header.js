@@ -5,16 +5,13 @@ import Img from "gatsby-image/withIEPolyfill";
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 
-const StyledImg = styled(Img)`
+const StyledImg = styled.img`
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
   height: 60px;
   width: auto;
+  margin: auto;
 `;
 
 const Header = () => {
@@ -22,7 +19,7 @@ const Header = () => {
     <StaticQuery
       query={graphql`
         query HeaderQuary {
-          file(relativePath: { eq: "logoCard.png" }) {
+          file(relativePath: { eq: "logo.png" }) {
             id
             childImageSharp {
               fluid {
@@ -47,20 +44,20 @@ const Header = () => {
 
 const HeaderWithData = ({ data }) => {
   return (
-    <header
-      style={{
-        background: theme.color1,
-        position: "relative",
-      }}
-    >
-      <div
+    <>
+      <header
         style={{
-          margin: `0 auto`,
-          maxWidth: theme.maxWidthDesktop,
-          padding: `1.45rem 1.0875rem`,
+          background: theme.color1,
+          position: "relative",
         }}
       >
-        <h1 style={{ margin: 0 }}>
+        <div
+          style={{
+            margin: `0 auto`,
+            maxWidth: theme.maxWidthDesktop,
+            padding: `1.45rem 1.0875rem`,
+          }}
+        >
           <Link
             to="/"
             style={{
@@ -68,19 +65,26 @@ const HeaderWithData = ({ data }) => {
               textDecoration: `none`,
             }}
           >
-            {data?.title?.siteMetadata?.title}
+            <h1 style={{ margin: "auto", textAlign:'center' }}>
+              {data?.title?.siteMetadata?.title}
+            </h1>
 
-            <Img
-              objectFit="contain"
-              objectPosition="50% 50%"
-              alt=""
-              fixed={data?.file?.childImageSharp?.fixed}
-            />
+            <StyledImg src={data?.file?.childImageSharp?.fluid.src} />
           </Link>
-        </h1>
-      </div>
-    </header>
+        </div>
+      </header>
+      {/* <Img fluid={data?.file?.childImageSharp?.fluid} /> */}
+    </>
   );
 };
 export default Header;
-            {/* <Img fluid={data?.file?.childImageSharp?.fluid} /> */}
+{
+  /* <Img fluid={data?.file?.childImageSharp?.fluid} /> */
+}
+
+// <Img
+//   objectFit="contain"
+//   objectPosition="50% 50%"
+//   alt=""
+//   fixed={data?.file?.childImageSharp?.fixed}
+// />

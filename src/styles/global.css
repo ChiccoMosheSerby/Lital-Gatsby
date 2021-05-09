@@ -1,14 +1,19 @@
 html {
   box-sizing: border-box;
-
+color: rgb(69, 36, 117);
   }
   body {
     margin: 0;
     box-sizing: border-box;
     font-family: "Nunito Sans", sans-serif;
     
+
+    
   }
-  
+ body::-webkit-scrollbar{
+   display: none;
+ } 
   *{
     box-sizing: border-box;
   }
+

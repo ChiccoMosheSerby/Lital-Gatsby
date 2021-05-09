@@ -3,7 +3,7 @@ path: "/posts/first-post"
 date: "04-05-2021"
 title: "my first post"
 author: "Chicco"
-category: 'test'
+category: 'a'
 ---
 # this is my first post
 

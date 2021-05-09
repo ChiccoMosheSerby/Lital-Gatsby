@@ -6,7 +6,7 @@ import Seo from "../components/seo";
 function AboutPage() {
   return (
     <Layout>
-      <Seo title="About" keywords={"haleluya"} /> <h1>About Me</h1>
+      <Seo title="About" keywords={"haleluya"} /> <h1>About</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae nihil,
         incidunt magni reiciendis facere aut unde laudantium. Neque perspiciatis
