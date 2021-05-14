@@ -25,11 +25,14 @@ const Container = styled.div`
   }
 `;
 const Text = styled.div`
-  @media (max-width:500px){
-    display:none;
+  @media (max-width: 500px) {
+    display: none;
   }
 `;
 const LinkRoute = ({ children, ...props }) => {
+  // console.log('window.location.pathname',window.location.pathname);
+  // console.log('props.path',props?.path);
+
   const currentPath =
     typeof window !== "undefined" ? window.location.pathname : "";
 
@@ -37,13 +40,11 @@ const LinkRoute = ({ children, ...props }) => {
     ...props,
     activeClassName: "active",
   };
-  linkProps =
-    currentPath !== props.path
-      ? { ...linkProps }
-      : {
-          ...linkProps,
-          className: currentPath === props.path && "active",
-        };
+
+  linkProps = {
+    ...props,
+    className: currentPath === props?.path ? "active" : "",
+  };
 
   return <Link {...linkProps}>{children}</Link>;
 };
@@ -53,7 +54,7 @@ const Menu = () => {
     <Nav>
       <ul>
         <li>
-          <LinkRoute path={"/"} to="/">
+          <LinkRoute path={"/"} to="/" exact>
             <Container>
               <HomeRoundedIcon />
               <Text>Home</Text>
@@ -61,7 +62,7 @@ const Menu = () => {
           </LinkRoute>
         </li>
         <li>
-          <LinkRoute path={"/about"} to="/about/">
+          <LinkRoute path={"/about/"} to="/about/">
             <Container>
               <InfoRoundedIcon />
               <Text>About</Text>
@@ -69,7 +70,7 @@ const Menu = () => {
           </LinkRoute>
         </li>
         <li>
-          <LinkRoute path={"/services"} to="/services/">
+          <LinkRoute path={"/services/"} to="/services/">
             <Container rotate>
               <MoreRoundedIcon />
               <Text>Services</Text>
@@ -77,7 +78,7 @@ const Menu = () => {
           </LinkRoute>
         </li>
         <li>
-          <LinkRoute path={"/contact"} to="/contact/">
+          <LinkRoute path={"/contact/"} to="/contact/">
             <Container>
               <ContactMailRoundedIcon />
               <Text>Contacnt</Text>
@@ -85,7 +86,7 @@ const Menu = () => {
           </LinkRoute>
         </li>
         <li>
-          <LinkRoute path={"/posts"} to="/posts/">
+          <LinkRoute path={"/posts/"} to="/posts/">
             <Container>
               <ExtensionRoundedIcon />
               <Text>Posts</Text>

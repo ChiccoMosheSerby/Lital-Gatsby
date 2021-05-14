@@ -1,9 +1,9 @@
-import { Link,graphql } from "gatsby";
+import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import FacebookIcon from '@material-ui/icons/Facebook';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+// import FacebookIcon from '@material-ui/icons/Facebook';
+// import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 export const contactQuery = graphql`
   query ContctInfo {
     contact: site{

@@ -4,6 +4,8 @@ date: "04-05-2021"
 title: "my first post"
 author: "Chicco"
 category: 'a'
+thumb: '../../images/thumbs/coffee.png'
+featuredImg: '../../images/featured/coffee-banner.png'
 ---
 # this is my first post
 

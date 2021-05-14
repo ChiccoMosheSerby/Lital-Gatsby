@@ -1,6 +1,8 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { graphql, Link } from "gatsby";
+import Img from "gatsby-image";
+
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { removeDups } from "../utils";
@@ -93,11 +95,11 @@ const CategoryItemBar = styled.div`
   opacity: 0.8;
   font-weight: 600;
   transform: scale(0.8);
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   ${({ selected }) =>
     selected &&
     css`
-    background-color: ${theme.color2opacity};
+      background-color: ${theme.color2opacity};
       color: ${theme.color2};
       opacity: 1;
       transform: scale(1);
@@ -120,6 +122,13 @@ export const postsQuery = graphql`
           date
           category
           author
+          thumb {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         id
       }
@@ -156,7 +165,7 @@ const Posts = ({ data }) => {
         {categories.map((cat, idx) => {
           return (
             <CategoryItemBar
-              selected={sortValue == cat}
+              selected={sortValue === cat}
               onClick={() => setSortValue(cat)}
             >
               {cat}
@@ -168,7 +177,7 @@ const Posts = ({ data }) => {
         {posts.map(({ frontmatter, id, excerpt }) => {
           const cat = frontmatter.category;
           return (
-            (!sortValue || sortValue == cat) && (
+            (!sortValue || sortValue === cat) && (
               <div key={id} className="post">
                 <div className="details">
                   {cat}
@@ -184,10 +193,13 @@ const Posts = ({ data }) => {
                     </Link>
                   </div>
                 </div>
-                <img
+                {/* <img
                   className="img"
                   src="https://www.theredimediclinic.com/wp-content/uploads/2018/09/Holistic-Health.png"
-                />
+                /> */}
+                <div style={{ height: "200px", width: "auto" }}>
+                  <Img fluid={frontmatter.thumb.childImageSharp.fluid} />
+                </div>
                 <hr />
               </div>
             )

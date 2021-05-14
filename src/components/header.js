@@ -1,7 +1,6 @@
 import * as React from "react";
-import PropTypes from "prop-types";
-import { Link, graphql, useStaticQuery, StaticQuery } from "gatsby";
-import Img from "gatsby-image/withIEPolyfill";
+import { Link, graphql, StaticQuery } from "gatsby";
+// import Img from "gatsby-image/withIEPolyfill";
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 
@@ -19,7 +18,7 @@ const Header = () => {
     <StaticQuery
       query={graphql`
         query HeaderQuary {
-          file(relativePath: { eq: "logo.png" }) {
+          file(relativePath: { eq: "400PngdpiLogoCropped.png" }) {
             id
             childImageSharp {
               fluid {
@@ -69,7 +68,9 @@ const HeaderWithData = ({ data }) => {
               {data?.title?.siteMetadata?.title}
             </h1>
 
-            <StyledImg src={data?.file?.childImageSharp?.fluid.src} />
+            {/* <StyledImg alt ={data?.file?.childImageSharp.alt} src={data?.file?.childImageSharp?.fluid.src} /> */}
+            <StyledImg fluid={data?.file?.childImageSharp?.fluid} />
+
           </Link>
         </div>
       </header>
@@ -78,9 +79,9 @@ const HeaderWithData = ({ data }) => {
   );
 };
 export default Header;
-{
+// {
   /* <Img fluid={data?.file?.childImageSharp?.fluid} /> */
-}
+// }
 
 // <Img
 //   objectFit="contain"

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ScrollBar from "../styles/scrollBar";
 import { theme } from "../styles/theme";
 
 
