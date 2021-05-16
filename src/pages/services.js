@@ -1,6 +1,6 @@
-import React from "react";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
+import React from "react"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 function ServicesPage() {
   return (
@@ -14,8 +14,7 @@ function ServicesPage() {
         vel.
       </p>
     </Layout>
-  );
+  )
 }
-
 
 export default ServicesPage

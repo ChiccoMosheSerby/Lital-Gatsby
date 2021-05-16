@@ -1,12 +1,12 @@
-import * as React from "react";
-import styled, { css } from "styled-components";
-import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import * as React from "react"
+import styled, { css } from "styled-components"
+import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
 
-import Layout from "../components/layout";
-import Seo from "../components/seo";
-import { removeDups } from "../utils";
-import { theme } from "../styles/theme";
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+import { removeDups } from "../utils"
+import { theme } from "../styles/theme"
 
 const PostsContainer = styled.div`
   display: flex;
@@ -64,7 +64,7 @@ const PostsContainer = styled.div`
       width: 100%;
     }
   }
-`;
+`
 
 const CategoriesBar = styled.div`
   display: flex;
@@ -76,7 +76,7 @@ const CategoriesBar = styled.div`
   @media (max-width: 1024px) {
     width: 100%;
   }
-`;
+`
 
 const CategoryItemBar = styled.div`
   user-select: none;
@@ -104,7 +104,7 @@ const CategoryItemBar = styled.div`
       opacity: 1;
       transform: scale(1);
     `}
-`;
+`
 export const postsQuery = graphql`
   query AllPostsQuary {
     posts: allMarkdownRemark(
@@ -139,18 +139,18 @@ export const postsQuery = graphql`
       }
     }
   }
-`;
+`
 
 const Posts = ({ data }) => {
-  const [sortValue, setSortValue] = React.useState("");
-  const posts = data?.posts?.nodes;
-  let categories = [];
+  const [sortValue, setSortValue] = React.useState("")
+  const posts = data?.posts?.nodes
+  let categories = []
   const titles = posts.map(({ frontmatter }) => {
-    categories.push(frontmatter.category);
-    return frontmatter.title;
-  });
-  categories = removeDups(categories);
-  const email = data?.contact?.siteMetadata?.contact;
+    categories.push(frontmatter.category)
+    return frontmatter.title
+  })
+  categories = removeDups(categories)
+  const email = data?.contact?.siteMetadata?.contact
   return (
     <Layout>
       <Seo title="Post" keywords={titles} />
@@ -170,12 +170,12 @@ const Posts = ({ data }) => {
             >
               {cat}
             </CategoryItemBar>
-          );
+          )
         })}
       </CategoriesBar>
       <PostsContainer>
         {posts.map(({ frontmatter, id, excerpt }) => {
-          const cat = frontmatter.category;
+          const cat = frontmatter.category
           return (
             (!sortValue || sortValue === cat) && (
               <div key={id} className="post">
@@ -203,12 +203,12 @@ const Posts = ({ data }) => {
                 <hr />
               </div>
             )
-          );
+          )
         })}
       </PostsContainer>
       Contact Us : {email}
     </Layout>
-  );
-};
+  )
+}
 
-export default Posts;
+export default Posts

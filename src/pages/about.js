@@ -1,6 +1,6 @@
-import React from "react";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
+import React from "react"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 function AboutPage() {
   return (
@@ -22,13 +22,13 @@ function AboutPage() {
         voluptates magnam velit quidem
       </p>
       <h2>
-          incidunt magni reiciendis facere aut unde laudantium. Neque
-          perspiciatis harum adipisci ullam ducimus unde saepe repellat, error
-          ex impedit, commodi quam ipsa consequuntur? Id, error voluptates
-          magnam velit quidem vel.
-        </h2>
+        incidunt magni reiciendis facere aut unde laudantium. Neque perspiciatis
+        harum adipisci ullam ducimus unde saepe repellat, error ex impedit,
+        commodi quam ipsa consequuntur? Id, error voluptates magnam velit quidem
+        vel.
+      </h2>
     </Layout>
-  );
+  )
 }
 
-export default AboutPage;
+export default AboutPage

@@ -1,8 +1,8 @@
-import { graphql, Link } from "gatsby";
-import React from "react";
-import Img from "gatsby-image/withIEPolyfill";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
+import { graphql, Link } from "gatsby"
+import React from "react"
+import Img from "gatsby-image/withIEPolyfill"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 export const postByPost = graphql`
   query PostByPath($path: String) {
@@ -32,11 +32,11 @@ export const postByPost = graphql`
       }
     }
   }
-`;
+`
 const PostPage = ({ data }) => {
-  console.log("data ", data);
-  const { markdownRemark } = data; // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark;
+  console.log("data ", data)
+  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const { frontmatter, html } = markdownRemark
   return (
     <Layout>
       <Seo title={frontmatter.title} keywords={frontmatter.title} />
@@ -63,7 +63,7 @@ const PostPage = ({ data }) => {
       </div>
       <Link to="/posts">Back To Posts All Post</Link>
     </Layout>
-  );
-};
+  )
+}
 
-export default PostPage;
+export default PostPage

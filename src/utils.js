@@ -1,9 +1,9 @@
 export function removeDups(arr) {
-  let unique = {};
+  let unique = {}
   arr.forEach(function (i) {
     if (!unique[i]) {
-      unique[i] = true;
+      unique[i] = true
     }
-  });
-  return Object.keys(unique);
+  })
+  return Object.keys(unique)
 }

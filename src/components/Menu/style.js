@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../styles/theme";
 
 export const Nav = styled.nav`
@@ -12,7 +12,7 @@ export const Nav = styled.nav`
   height: 60px;
   position: sticky;
   top: 0;
-  z-index:10;
+  z-index: 10;
 
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -26,7 +26,11 @@ export const Nav = styled.nav`
     height: 100%;
     padding: 0;
     width: 100%;
-
+    ${({ lang }) =>
+      lang == "he" &&
+      css`
+        direction: rtl;
+      `}
     li {
       display: flex;
       justify-content: center;
@@ -42,7 +46,7 @@ export const Nav = styled.nav`
         border-bottom: 2px solid;
         border-color: transparent;
         width: 100%;
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
 
         padding-left: 7px;
         padding-right: 7px;

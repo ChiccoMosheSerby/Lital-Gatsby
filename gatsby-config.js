@@ -1,11 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `Lital`,
+    hebTitle:`ליטל`,
     description: `this is my first gatsby site.`,
     author: `Chicco`,
-    keywords:'therapy',
-    copyright:'this site made by C.M.S Chicco Moshe Serby',
-    contact:"chiccoMoshe@gmail.com"
+    keywords: "therapy",
+    copyright: "this site made by C.M.S Chicco Moshe Serby",
+    contact: "chiccoMoshe@gmail.com",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -29,6 +30,19 @@ module.exports = {
       options: {
         name: `thumb`,
         path: `${__dirname}/src/images/thumbs`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `Json`, // a fixed string
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "content",
+        path: `${__dirname}/static/content`,
       },
     },
     `gatsby-transformer-sharp`,

@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from "styled-components"
 
 export const ScrollBar = css`
   /* width */
@@ -30,6 +30,6 @@ export const ScrollBar = css`
   scrollbar-face-color: rgba(215, 215, 215, 0.9); /*IE11*/
   scrollbar-color: rgba(215, 215, 215, 1) #fff;
   overflow-y: auto;
-`;
+`
 
-export default ScrollBar;
+export default ScrollBar

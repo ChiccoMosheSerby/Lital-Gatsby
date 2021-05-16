@@ -13,7 +13,7 @@ const StyledImg = styled.img`
   margin: auto;
 `;
 
-const Header = () => {
+const Header = ({ lang }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -32,16 +32,17 @@ const Header = () => {
           title: site {
             siteMetadata {
               title
+              hebTitle
             }
           }
         }
       `}
-      render={(data) => <HeaderWithData data={data} />}
+      render={(data) => <HeaderWithData lang={lang} data={data} />}
     />
   );
 };
 
-const HeaderWithData = ({ data }) => {
+const HeaderWithData = ({ lang, data }) => {
   return (
     <>
       <header
@@ -64,13 +65,14 @@ const HeaderWithData = ({ data }) => {
               textDecoration: `none`,
             }}
           >
-            <h1 style={{ margin: "auto", textAlign:'center' }}>
-              {data?.title?.siteMetadata?.title}
+            <h1 style={{ margin: "auto", textAlign: "center" }}>
+              {lang === "en"
+                ? data?.title?.siteMetadata?.title
+                : data?.title?.siteMetadata?.hebTitle}
             </h1>
 
             {/* <StyledImg alt ={data?.file?.childImageSharp.alt} src={data?.file?.childImageSharp?.fluid.src} /> */}
             <StyledImg fluid={data?.file?.childImageSharp?.fluid} />
-
           </Link>
         </div>
       </header>
@@ -80,7 +82,7 @@ const HeaderWithData = ({ data }) => {
 };
 export default Header;
 // {
-  /* <Img fluid={data?.file?.childImageSharp?.fluid} /> */
+/* <Img fluid={data?.file?.childImageSharp?.fluid} /> */
 // }
 
 // <Img

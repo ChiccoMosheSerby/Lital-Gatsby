@@ -1,20 +1,20 @@
-import { graphql } from "gatsby";
-import React from "react";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
+import { graphql } from "gatsby"
+import React from "react"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 // import FacebookIcon from '@material-ui/icons/Facebook';
 // import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 export const contactQuery = graphql`
   query ContctInfo {
-    contact: site{
-      siteMetadata{
+    contact: site {
+      siteMetadata {
         contact
       }
     }
   }
-`;
+`
 
-function ContactPage({data}) {
+function ContactPage({ data }) {
   const email = data?.contact?.siteMetadata?.contact
   return (
     <Layout>
@@ -28,7 +28,7 @@ function ContactPage({data}) {
         vel.
       </p>
     </Layout>
-  );
+  )
 }
 
-export default ContactPage;
+export default ContactPage

@@ -1,7 +1,6 @@
 const path = require(`path`)
 
 exports.createPages = async ({ graphql, actions }) => {
-
   const { data } = await graphql(`
     query Posts {
       allMarkdownRemark {
@@ -12,14 +11,13 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `);
+  `)
 
   data.allMarkdownRemark.nodes.forEach(node => {
     actions.createPage({
-      path:  node.frontmatter.path,
-      component: path.resolve('./src/templates/PostPage.js'),
-      context: { path: node.frontmatter.path }
+      path: node.frontmatter.path,
+      component: path.resolve("./src/templates/PostPage.js"),
+      context: { path: node.frontmatter.path },
     })
   })
-
 }

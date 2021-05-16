@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "gatsby";
+import React, { useEffect } from "react";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import styled, { css } from "styled-components";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import InfoRoundedIcon from "@material-ui/icons/InfoRounded";
@@ -7,7 +7,8 @@ import ContactMailRoundedIcon from "@material-ui/icons/ContactMailRounded";
 import ExtensionRoundedIcon from "@material-ui/icons/ExtensionRounded";
 import MoreRoundedIcon from "@material-ui/icons/MoreRounded";
 import { Nav } from "./style";
-
+import { he, en } from "../../../static/content/data.json";
+import { useNavIcons } from "../../../static/icons/navigatinIcons";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -49,11 +50,37 @@ const LinkRoute = ({ children, ...props }) => {
   return <Link {...linkProps}>{children}</Link>;
 };
 
-const Menu = () => {
+const Menu = ({lang = 'en'}) => {
+  const icons = useNavIcons();
+  let nav = lang == "he" ? he.navigation : en.navigation;
+
+  // const lang =
+  //   typeof window !== "undefined"
+  //     ? JSON.parse(localStorage.getItem("lang"))
+  //     : "en";
+
+  useEffect(() => {
+    nav = lang == "he" ? he.navigation : en.navigation;
+  },[lang]);
+  console.log(nav);
+  const renderNav = () =>
+    nav.map((navItem, index) => {
+      return (
+        <li key={navItem.id}>
+          <LinkRoute path={navItem.path} to={navItem.path} exact>
+            <Container>
+              {/* <HomeRoundedIcon /> */}
+              {icons[index]}
+              <Text>{navItem.text}</Text>
+            </Container>
+          </LinkRoute>
+        </li>
+      );
+    });
   return (
-    <Nav>
+    <Nav lang={lang}>
       <ul>
-        <li>
+        {/* <li>
           <LinkRoute path={"/"} to="/" exact>
             <Container>
               <HomeRoundedIcon />
@@ -92,7 +119,8 @@ const Menu = () => {
               <Text>Posts</Text>
             </Container>
           </LinkRoute>
-        </li>
+        </li> */}
+        {renderNav()}
       </ul>
     </Nav>
   );

@@ -1,14 +1,14 @@
-import React from "react";
-import { theme as litalTheme} from "../../styles/theme";
-import styled from "styled-components";
+import React from "react"
+import { theme as litalTheme } from "../../styles/theme"
+import styled from "styled-components"
 import {
   withStyles,
   ThemeProvider,
   createMuiTheme,
-} from "@material-ui/core/styles";
-import { Tab, Tabs } from "@material-ui/core";
+} from "@material-ui/core/styles"
+import { Tab, Tabs } from "@material-ui/core"
 
-const TabsWithStyling = withStyles((theme) => ({
+const TabsWithStyling = withStyles(theme => ({
   root: {
     fontSize: "18px",
     width: "100%",
@@ -22,18 +22,18 @@ const TabsWithStyling = withStyles((theme) => ({
   indicator: {
     backgroundColor: theme.color1,
   },
-}))((props) => <Tabs {...props} />);
+}))(props => <Tabs {...props} />)
 
 export const StyledTabs = ({ children, ...rest }) => {
-  const muiTheme = createMuiTheme({ color1: litalTheme.color1 });
+  const muiTheme = createMuiTheme({ color1: litalTheme.color1 })
   return (
     <ThemeProvider theme={muiTheme}>
       <TabsWithStyling {...rest}>{children}</TabsWithStyling>
     </ThemeProvider>
-  );
-};
+  )
+}
 
-export const StyledTab = withStyles((theme) => ({
+export const StyledTab = withStyles(theme => ({
   root: {
     fontSize: "18px",
     textTransform: "capitalize",
@@ -60,12 +60,12 @@ export const StyledTab = withStyles((theme) => ({
       border: `1px solid transparent`,
     },
   },
-}))((props) => <Tab {...props} />);
+}))(props => <Tab {...props} />)
 
 export const TopMenuStyle = styled.div`
   max-width: 550px;
   margin: auto;
-`;
+`
 
 export const StyledTabIcon = styled.label`
   display: flex;
@@ -81,4 +81,4 @@ export const StyledTabIcon = styled.label`
   :hover {
     background-color: #f0efef;
   }
-`;
+`

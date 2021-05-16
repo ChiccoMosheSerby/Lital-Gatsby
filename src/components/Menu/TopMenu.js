@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import { withRouter, useHistory, Switch, Route } from "react-router-dom";
-import PhoneIcon from "@material-ui/icons/Phone";
-import InfoIcon from "@material-ui/icons/Info";
-import HomeIcon from "@material-ui/icons/Home";
-import ShareIcon from "@material-ui/icons/Share";
+import React, { useState } from "react"
+import { withRouter, useHistory, Switch, Route } from "react-router-dom"
+import PhoneIcon from "@material-ui/icons/Phone"
+import InfoIcon from "@material-ui/icons/Info"
+import HomeIcon from "@material-ui/icons/Home"
+import ShareIcon from "@material-ui/icons/Share"
 import {
   StyledTab,
   StyledTabs,
   TopMenuStyle,
   StyledTabIcon,
-} from "./BuilderTabs.style";
+} from "./BuilderTabs.style"
 
 const TopMenu = () => {
-  const [value, setValue] = useState(0);
-  let history = useHistory();
+  const [value, setValue] = useState(0)
+  let history = useHistory()
   const handleCallToRouter = (e, value) => {
-    setValue(value);
-    history.push(value);
-  };
+    setValue(value)
+    history.push(value)
+  }
   return (
     <TopMenuStyle value={value}>
       <StyledTabs
@@ -78,7 +78,7 @@ const TopMenu = () => {
         />
       </StyledTabs>
     </TopMenuStyle>
-  );
-};
+  )
+}
 
-export default withRouter(TopMenu);
+export default withRouter(TopMenu)
