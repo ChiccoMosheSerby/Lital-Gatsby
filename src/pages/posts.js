@@ -83,10 +83,11 @@ const CategoryItemBar = styled.div`
   margin: 0;
   padding: 5px;
   border-radius: 4px;
+  border:solid 1px transparent;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: ${theme.color1};
+  background-color: ${theme.color2opacity};
   color: #fff;
   flex: 1;
   height: 45px;
@@ -100,7 +101,7 @@ const CategoryItemBar = styled.div`
     selected &&
     css`
       background-color: ${theme.color2opacity};
-      color: ${theme.color2};
+      border-color: ${theme.color3opacity};
       opacity: 1;
       transform: scale(1);
     `}

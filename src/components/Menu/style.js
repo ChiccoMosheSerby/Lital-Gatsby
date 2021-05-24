@@ -8,7 +8,8 @@ export const Nav = styled.nav`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: ${theme.color2opacity};
+  background-color: ${(props) =>
+    props.isMobile ? theme.color1opacity : "#ffffffd0"};
   height: 60px;
   position: sticky;
   top: 0;
@@ -22,10 +23,13 @@ export const Nav = styled.nav`
     align-items: space-between;
     max-width: ${theme.maxWidthDesktop};
     list-style: none;
-    margin: 0;
+    margin: auto;
     height: 100%;
+    ${({isMobile})=>isMobile && css`
+      padding:0;
+    `}
     padding: 0;
-    width: 100%;
+    width: ${(p) => (p.isMobile ? "100%" : "50%")};
     ${({ lang }) =>
       lang == "he" &&
       css`
@@ -36,20 +40,21 @@ export const Nav = styled.nav`
       justify-content: center;
       align-items: center;
       height: 100%;
+      width: 100%;
       a {
         display: flex;
         justify-content: center;
         align-items: center;
         text-decoration: none;
-        color: #fff;
+        color: ${theme.color2};
         height: 100%;
-        border-bottom: 2px solid;
+        border-bottom: 3px solid;
         border-color: transparent;
         width: 100%;
         transition: all 0.2s ease-in-out;
 
-        padding-left: 7px;
-        padding-right: 7px;
+        /* padding-left: 7px;
+        padding-right: 7px; */
 
         @media (max-width: 500px) {
           padding-left: 2;
@@ -57,8 +62,8 @@ export const Nav = styled.nav`
           flex: 1;
         }
         &.active {
-          color: ${theme.color1};
-          border-color: ${theme.color1};
+          color: ${theme.color2};
+          border-color: ${theme.color2};
         }
       }
     }

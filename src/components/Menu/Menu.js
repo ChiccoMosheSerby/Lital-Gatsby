@@ -9,14 +9,15 @@ import MoreRoundedIcon from "@material-ui/icons/MoreRounded";
 import { Nav } from "./style";
 import { he, en } from "../../../static/content/data.json";
 import { useNavIcons } from "../../../static/icons/navigatinIcons";
+import {useDeviceDetect } from '../../hooks/useDeviceDetect'
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
   align-items: center;
-  padding-left: 5px;
-  padding-right: 5px;
+  /* padding-left: 5px;
+  padding-right: 5px; */
   svg {
     ${({ rotate }) =>
       rotate &&
@@ -53,7 +54,7 @@ const LinkRoute = ({ children, ...props }) => {
 const Menu = ({lang = 'en'}) => {
   const icons = useNavIcons();
   let nav = lang == "he" ? he.navigation : en.navigation;
-
+const {isMobile} = useDeviceDetect()
   // const lang =
   //   typeof window !== "undefined"
   //     ? JSON.parse(localStorage.getItem("lang"))
@@ -78,7 +79,7 @@ const Menu = ({lang = 'en'}) => {
       );
     });
   return (
-    <Nav lang={lang}>
+    <Nav lang={lang} isMobile={isMobile}>
       <ul>
         {/* <li>
           <LinkRoute path={"/"} to="/" exact>

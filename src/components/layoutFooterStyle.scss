@@ -1,0 +1,41 @@
+$colNum:6;
+$colors: #00b5e0, #4652fd, #52a2d3, rgb(0, 212, 219), rgb(164, 240, 243), #39c4f1;
+.contfoot {
+	margin: auto;
+	// color: #ffffffd0;
+	width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+
+footer {
+    transform: rotate(180deg);
+	
+	display: flex;
+	height:10vh;
+	overflow: hidden;
+	position: relative;
+	.col {
+		opacity: .6;
+		transform-origin: top;
+		animation: grow 1s 1 normal forwards cubic-bezier(0.5, 0.2, 0.3, 1.0);
+		@for $i from 1 through length($colors) {
+			&:nth-child(#{length($colors)}n+#{$i}) {
+				background: nth($colors, $i);
+				height: random(20) * 5%;
+				width: 10.5%;
+			}
+		}
+	}
+}
+
+@keyframes grow {
+	from {
+		transform: scaleY(0);
+	}
+	to {
+		transform: scaleY(1);
+	}
+}

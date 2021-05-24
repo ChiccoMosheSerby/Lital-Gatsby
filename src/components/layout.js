@@ -5,25 +5,36 @@ import Header from "./Header.js";
 import Menu from "./Menu/Menu";
 import { LayoutContent } from "./layout.style.js";
 import LanguageChangerBtn from "./Language/LanguageChangerBtn";
-
+import { useDeviceDetect } from "../hooks/useDeviceDetect";
+import "./layoutFooterStyle.scss";
 const Layout = ({ children }) => {
-  const [language, setLang] = React.useState()
-
+  const [language, setLang] = React.useState();
+  const { isMobile } = useDeviceDetect();
   return (
     <>
-      <Header  lang={language} />
-      <LanguageChangerBtn language ={language} setL={(l)=>setLang(l)}/>
+      <Header lang={language} />
+      <LanguageChangerBtn language={language} setL={(l) => setLang(l)} />
       <Menu lang={language} />
-      <LayoutContent >
-        <main>{children}</main>
-        {/* <footer
+      <LayoutContent>
+        <main
           style={{
-            position: 'absolute',
-            bottom: '0'
+            marginBottom: "10px",
           }}
         >
-          Copyright 2021 Chicco
-        </footer> */}
+          {children}
+        </main>
+        {!isMobile && (
+          <div className="contfoot">
+            <footer id="#footer">
+              <div className="col"></div>
+              <div className="col"></div>
+              <div className="col"></div>
+              <div className="col"></div>
+              <div className="col"></div>
+              <div className="col"></div>
+            </footer>
+          </div>
+        )}
       </LayoutContent>
     </>
   );

@@ -9,6 +9,7 @@ module.exports = {
     contact: "chiccoMoshe@gmail.com",
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
