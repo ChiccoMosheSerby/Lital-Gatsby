@@ -113,7 +113,6 @@ const HeaderWithData = ({ lang, data }) => {
           </Link>
         </Container>
       </header>
-      {/* <Img fluid={data?.file?.childImageSharp?.fluid} /> */}
     </div>
   );
 };
