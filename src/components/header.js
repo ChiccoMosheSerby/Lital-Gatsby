@@ -86,7 +86,7 @@ const HeaderWithData = ({ lang, data }) => {
         <div className="col"></div>
         <Container>
           <ImageContainer isMobile={isMobile}>
-            <img src="../images/logo.png" />
+            {/* <img src="../images/logo.png" /> */}
           </ImageContainer>
 
           <Link
